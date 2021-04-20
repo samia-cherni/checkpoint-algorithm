@@ -1,0 +1,29 @@
+ALGORITHM character_find
+VAR
+    s:STRING;
+    vowels : STRING:={'a','e','o','i','u','y'};
+    num_char,num_word,num_vow,l:INTEGER:=0;
+BEGIN
+    Read(s);
+    l:=s.length-1;
+    IF (s[l]='.') THEN
+        FOR i FROM 0 TO l-1 STEP 1  DO
+            IF (NOT(s[i]=' ')) THEN
+                num_char:=num_char+1;
+                FOR j FROM 0 TO 5 STEP 1  DO
+                    IF (s[i]=vowels[j]) THEN
+                    num_vow:=num_vow+1;
+                    END_IF
+                END_FOR
+            ELSE
+            num_word:=num_word+1;    
+            END_FOR
+    num_word:=num_word+1;
+    END_IF
+    ELSE
+        Write("Your sentence has no full stop at the end.")
+    END_IF 
+    Write(num_char);
+    Write(num_vow);
+    Write(num_word);
+END
